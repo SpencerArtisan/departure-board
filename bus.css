@@ -11,7 +11,6 @@ li {
 	list-style-position: outside;
     list-style-type: none;
     vertical-align: middle;
-    padding-left: 10px;
 }
 li.overground {
 	background-color: #e86a10;
@@ -45,14 +44,21 @@ ol.departures li {
 ol.stops li.overground span.stopName {
     color: white;
 }
+ol.stops li.overground span.unitName {
+    color: white;
+    font-size: 19px;
+    height: 32px;
+    margin-bottom: 3px;
+}
 ol.units span.unitName {
-	width: 80px;
+	width: 100px;
 	display: inline-block;
     font-family: Helvetica,sans-serif;
     font-size: 32px;
     font-weight: 400;
     color: #397393;
 	vertical-align: bottom;
+    text-align: center;
 }
 span.stopName {
     position: absolute;	
@@ -67,7 +73,7 @@ span.stopName {
 ol.stops {
 	background-color: white;
 	width: 1000px;
-	height: 572px;
+	height: 567px;
 }
 ol.stops li.stop {
 	padding-left: 10px;
