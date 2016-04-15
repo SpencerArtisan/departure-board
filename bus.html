@@ -1,0 +1,194 @@
+<html>
+<head>
+<style type="text/css">
+body {
+	background-color: #32ab2e;
+	width: 1024px;
+	height: 600px;
+}
+ol {
+	list-style:none;
+    padding-left:0;
+}
+li {
+	list-style-position: outside;
+    list-style-type: none;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+li.overground {
+	background-color: #e86a10;
+}
+ol.departures {
+	display: inline-block;
+}
+li.overground span.route {
+	color: white;
+}
+span.route {
+	float: right;
+	font-family: Helvetica,sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: #397393;
+    padding-top: 9px;
+}
+ol.units > li {
+	padding-top: 11px;
+	padding-bottom: 11px;
+	padding-left: 240px;
+	display: block;
+}
+ol.departures > li {
+	display: inline-block;
+	width: 60px;
+}
+ol.stops li.overground span.name {
+    color: white;
+}
+ol.units span.name {
+	width: 100px;
+	display: inline-block;
+    font-family: Helvetica,sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #397393;
+}
+ol.stops span.name {
+	vertical-align: bottom;
+    font-family: Helvetica,sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #397393;
+}
+ol.stops > li > span.name {
+    position: absolute;	
+    font-weight: 700;
+    padding-top: 11px;
+}
+
+ol.stops {
+	background-color: white;
+	width: 1000px;
+	height: 572px;
+}
+ol.stops > li {
+	padding-left: 10px;
+	padding-right: 20px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #d9e3ea;
+}
+span.value {
+	font-size: 32px;
+    font-family: Helvetica,sans-serif;
+    font-weight: 700;
+    color: #666;
+}
+span.units {
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    color: #666;
+    margin-left: 4px;
+}
+li.overground span.value {
+	color: white;
+}
+li.overground span.units {
+	color: white;
+}
+
+</style>
+</head>
+<body>
+<ol class="stops">
+	<li class="overground">
+		<span class="name">Overground</span>
+		<ol class="units">
+			<li data-to="Dalston">
+				<span class="name">East</span>
+				<ol class="departures">
+					<li><span class="value">2</span><span class="units">mins</span></li>
+					<li><span class="value">7</span><span class="units">mins</span></li>
+					<li><span class="value">15</span><span class="units">mins</span></li>
+				</ol>	
+				<span class="route">&#8674; Dalston &#8674; Shoreditch &#8674; Canada Water</span>				
+			</li>
+		</ol>
+		<ol class="units">
+			<li data-to="Camden">
+				<span class="name">West</span>
+				<ol class="departures">
+					<li><span class="value">2</span><span class="units">mins</span></li>
+					<li><span class="value">7</span><span class="units">mins</span></li>
+				</ol>				
+				<span class="route">&#8674; Camden &#8674; Clapham Junction</span>				
+			</li>
+		</ol>
+	</li>
+	<li class="bus">
+		<span class="name">Cally S</span>
+		<ol class="units">
+			<li data-to="Kings Cross,Covent Garden">
+				<span class="name">17</span>
+				<ol class="departures">
+					<li><span class="value">2</span><span class="units">mins</span></li>
+					<li><span class="value">7</span><span class="units">mins</span></li>
+				</ol>
+				<span class="route">&#8674; King's Cross &#8674; Clerkenwell &#8674; Cannon St</span>				
+			</li>
+			<li data-to="Angel">
+				<span class="name">91</span>
+				<ol class="departures">
+					<li><span class="value">2</span><span class="units">mins</span></li>
+					<li><span class="value">7</span><span class="units">mins</span></li>
+				</ol>
+				<span class="route">&#8674; King's Cross &#8674; Holborn &#8674; Charing Cross</span>				
+			</li>
+			<li data-to="Angel">
+				<span class="name">274</span>
+				<ol class="departures">
+					<li><span class="value">2</span><span class="units">mins</span></li>
+					<li><span class="value">7</span><span class="units">mins</span></li>
+				</ol>
+				<span class="route">&#8674; Angel</span>				
+			</li>
+			<li data-to="Angel">
+				<span class="name">259</span>
+				<ol class="departures">
+					<li><span class="value">2</span><span class="units">mins</span></li>
+					<li><span class="value">7</span><span class="units">mins</span></li>
+				</ol>
+				<span class="route">&#8674; King's Cross</span>				
+			</li>
+		</ol>
+	</li>
+
+	<li class="bus">
+		<span class="name">Cally N</span>
+		<ol class="units">
+			<li data-to="Camden">
+				<span class="name">274</span>
+				<ol class="departures">
+					<li><span class="value">2</span><span class="units">mins</span></li>
+				</ol>
+				<span class="route">&#8674; Camden &#8674; Baker St &#8674; Mayfair</span>				
+			</li>
+		</ol>
+	</li>
+	<li class="bus">
+		<span class="name">Hemingford S</span>
+		<ol class="units">
+			<li data-to="Farringdon">
+				<span class="name">153</span>
+				<ol class="departures">
+					<li><span class="value">2</span><span class="units">mins</span></li>
+					<li><span class="value">7</span><span class="units">mins</span></li>
+				</ol>
+				<span class="route">&#8674; Angel &#8674; Clerkenwell &#8674; Liverpool St</span>			</li>
+		</ol>
+	</li>
+</ol>
+</body>
+</html>
