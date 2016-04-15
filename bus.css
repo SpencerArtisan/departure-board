@@ -40,6 +40,7 @@ ol.units li.unit {
 ol.departures li {
 	display: inline-block;
     width: 90px;
+    text-align: center;
 }
 ol.stops li.overground span.stopName {
     color: white;
@@ -79,7 +80,7 @@ span.value {
 	font-size: 32px;
     font-family: Helvetica,sans-serif;
     font-weight: 700;
-    margin-left: 10px;
+    ZZmargin-left: 10px;
     color: #666;
 }
 span.units {
