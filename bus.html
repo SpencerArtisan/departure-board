@@ -20,9 +20,9 @@
     <script type="text/babel">
 var Departure = React.createClass({
   render: function() {
-    return (
-      <li><span className="value">{this.props.children}</span><span className="units">mins</span></li>
-    );
+      return this.props.minsToArrival == 0 ? 
+      (<li><span className="value">due</span></li>) : 
+      (<li><span className="value">{this.props.minsToArrival}</span><span className="units">mins</span></li>);
   }
 });
 
@@ -35,9 +35,8 @@ var Departures = React.createClass({
       var arrival = new Date(departure.expectedArrival)
       var minsToArrival = Math.round((arrival - new Date())/60000);
       console.log(minsToArrival+"m to " + arrival);
-      if (departure.lineId != lineId || minsToArrival < 0) return;
-      var display = minsToArrival == 0 ? "due" : minsToArrival;
-      departureNodes.push(<Departure>{display}</Departure>);
+      if (departure.lineId != lineId || minsToArrival < 0 || departureNodes.length==3) return;
+      departureNodes.push(<Departure minsToArrival={minsToArrival}/>);
     });
     return (
       <li className="unit">

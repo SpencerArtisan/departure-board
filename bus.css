@@ -25,7 +25,7 @@ li.overground span.route {
 span.route {
 	float: right;
 	font-family: Helvetica,sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     font-style: italic;
     color: #397393;
@@ -39,6 +39,7 @@ ol.units li.unit {
 }
 ol.departures li {
 	display: inline-block;
+    width: 90px;
 }
 ol.stops li.overground span.stopName {
     color: white;
@@ -78,6 +79,7 @@ span.value {
 	font-size: 32px;
     font-family: Helvetica,sans-serif;
     font-weight: 700;
+    margin-left: 10px;
     color: #666;
 }
 span.units {
@@ -85,7 +87,6 @@ span.units {
     font-size: 14px;
     color: #666;
     margin-left: 4px;
-    margin-right: 10px;
 }
 li.overground span.value {
 	color: white;
