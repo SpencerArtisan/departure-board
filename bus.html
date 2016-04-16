@@ -38,6 +38,17 @@ var Departures = React.createClass({
       if ((departure.lineId != lineId && departure.platformName != lineId) || minsToArrival < 0 || departureNodes.length==3) return;
       departureNodes.push(<Departure minsToArrival={minsToArrival}/>);
     });
+    if (departureNodes.length == 0) {
+    return (
+      <li className="unit">
+        <span className="unitName">{this.props.lineId}</span>
+		<ol className="departures">
+          <li className="noService">No service</li>
+      </ol>
+        <span className="route">{this.props.route}</span>				
+      </li>
+      );
+    }
     return (
       <li className="unit">
         <span className="unitName">{this.props.lineId}</span>

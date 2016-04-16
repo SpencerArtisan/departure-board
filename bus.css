@@ -21,6 +21,12 @@ ol.departures {
 li.overground span.route {
 	color: white;
 }
+li.overground li.noService {
+	color: white;
+}
+li.bus li.noService {
+	color: #666;
+}
 span.route {
 	float: right;
 	font-family: Helvetica,sans-serif;
@@ -41,14 +47,23 @@ ol.departures li {
     width: 90px;
     text-align: center;
 }
+ol.departures li.noService {
+    width: 250px;
+    font-family: Helvetica,sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 7px;
+}
 ol.stops li.overground span.stopName {
     color: white;
 }
 ol.stops li.overground span.unitName {
     color: white;
     font-size: 19px;
-    height: 32px;
-    margin-bottom: 3px;
+    height: 27px;
+    margin-bottom: 4px;
+    padding-top: 4px;
 }
 ol.units span.unitName {
 	width: 100px;
@@ -69,6 +84,7 @@ span.stopName {
     font-size: 32px;
     color: #397393;
 }
+
 
 ol.stops {
 	background-color: white;
