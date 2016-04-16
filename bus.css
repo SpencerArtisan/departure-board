@@ -62,7 +62,7 @@ ol.stops li.overground span.unitName {
     color: white;
     font-size: 19px;
     height: 27px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     padding-top: 4px;
 }
 ol.units span.unitName {
@@ -89,7 +89,7 @@ span.stopName {
 ol.stops {
 	background-color: white;
 	width: 1000px;
-	height: 567px;
+	height: 571px;;
 }
 ol.stops li.stop {
 	padding-left: 10px;

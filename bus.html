@@ -34,7 +34,6 @@ var Departures = React.createClass({
     this.props.data.sort(function(a,b){return a.timeToStation-b.timeToStation}).forEach(function(departure) {
       var arrival = new Date(departure.expectedArrival)
       var minsToArrival = Math.round((arrival - new Date())/60000);
-      console.log(departure.platformName);
       if ((departure.lineId != lineId && departure.platformName != lineId) || minsToArrival < 0 || departureNodes.length==3) return;
       departureNodes.push(<Departure minsToArrival={minsToArrival}/>);
     });
