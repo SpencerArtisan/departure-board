@@ -34,19 +34,24 @@ var Departures = React.createClass({
     this.props.data.sort(function(a,b){return a.timeToStation-b.timeToStation}).forEach(function(departure) {
       var arrival = new Date(departure.expectedArrival)
       var minsToArrival = Math.round((arrival - new Date())/60000);
+      if (minsToArrival < 0) {
+        console.log("Expected arrival time in past: " + arrival);
+      }
       if ((departure.lineId != lineId && departure.platformName != lineId) || minsToArrival < 0 || departureNodes.length==3) return;
-      departureNodes.push(<Departure minsToArrival={minsToArrival}/>);
+      departureNodes.push(<Departure key={departure.id} minsToArrival={minsToArrival}/>);
     });
     if (departureNodes.length == 0) {
-    return (
-      <li className="unit">
-        <span className="unitName">{this.props.lineId}</span>
-		<ol className="departures">
-          <li className="noService">No service</li>
-      </ol>
-        <span className="route">{this.props.route}</span>				
-      </li>
-      );
+      console.log("NO SERVICE!");
+      console.log(this.props.data);
+      return (
+        <li className="unit">
+          <span className="unitName">{this.props.lineId}</span>
+          <ol className="departures">
+            <li className="noService">No service</li>
+        </ol>
+          <span className="route">{this.props.route}</span>				
+        </li>
+        );
     }
     return (
       <li className="unit">
@@ -63,11 +68,17 @@ var Departures = React.createClass({
 var BusStop = React.createClass({
   loadStopsFromServer: function() {
     $.ajax({
-      url: this.props.url,
+      url: (this.props.url + "?preventCache=" + new Date()),
+      data: '',
       dataType: 'json',
       cache: false,
       success: function(data) {
-        this.setState({data: data});
+        var now = new Date();
+        if (data.length > 0 && new Date(data[0].expectedArrival) < now) {
+          console.log("*** API returning times in past for " + this.props.label + ". Ignoring result.");
+        } else {
+          this.setState({data: data});
+        }
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
@@ -103,7 +114,7 @@ var BusStop = React.createClass({
 ReactDOM.render(
 <BusStop url='https://api.tfl.gov.uk/StopPoint/910GCLDNNRB/Arrivals' label="Overground" 
          lineIds={["Platform 2:⇢ Camden",
-                   "Platform 3:⇢ Dalston ⇢ Shoreditch ⇢ Canada Water"]} pollInterval={92000}/>,
+                   "Platform 3:⇢ Dalston ⇢ Shoreditch ⇢ Canada Water"]} pollInterval={2000}/>,
   document.getElementById('overground')
 );
 
@@ -114,19 +125,24 @@ ReactDOM.render(
           "91:⇢ King's Cross ⇢ Holborn ⇢ Charing Cross", 
           "274:⇢ Angel", 
           "259:⇢ King's Cross"]} 
-        pollInterval={2000}/>,
+        pollInterval={3000}/>,
   document.getElementById('callySouth')
 );
 
 ReactDOM.render(
 <BusStop url='https://api.tfl.gov.uk/StopPoint/490001043K/Arrivals' label="Caledonian N" 
-         lineIds={['274:⇢ Camden ⇢ Baker St ⇢ Mayfair']} pollInterval={2000}/>,
+         lineIds={[
+          "17:⇢ Holloway Road ⇢ Archway",
+          "91:⇢ Holloway Road ⇢ Crouch End", 
+          "274:⇢ Holloway Road ⇢ Baker St ⇢ Mayfair", 
+          "259:⇢ Holloway Road ⇢ Finsbury Park ⇢ Tottenham"]} 
+        pollInterval={5000}/>,
   document.getElementById('callyNorth')
 );
 
 ReactDOM.render(
 <BusStop url='https://api.tfl.gov.uk/StopPoint/490013415S/Arrivals' label="Hemingford S" 
-         lineIds={['153:⇢ Angel ⇢ Clerkenwell ⇢ Liverpool St']} pollInterval={2000}/>,
+         lineIds={['153:⇢ Angel ⇢ Clerkenwell ⇢ Liverpool St']} pollInterval={7000}/>,
   document.getElementById('hemingfordSouth')
 );
 

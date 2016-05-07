@@ -37,8 +37,8 @@ span.route {
     padding-top: 9px;
 }
 ol.units li.unit {
-	padding-top: 11px;
-	padding-bottom: 11px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 	padding-left: 240px;
 	display: block;
 }
@@ -52,8 +52,10 @@ ol.departures li.noService {
     font-family: Helvetica,sans-serif;
     font-size: 20px;
     font-weight: 400;
+    margin-top: 8px;
     font-style: italic;
-    margin-bottom: 7px;
+    margin-bottom: 1px;
+    height: 28px;
 }
 ol.stops li.overground span.stopName {
     color: white;
@@ -78,7 +80,7 @@ ol.units span.unitName {
 span.stopName {
     position: absolute;	
     font-weight: 700;
-    padding-top: 11px;
+    padding-top: 5px;
 	vertical-align: bottom;
     font-family: Helvetica,sans-serif;
     font-size: 32px;
@@ -88,14 +90,14 @@ span.stopName {
 
 ol.stops {
 	background-color: white;
-	width: 1000px;
-	height: 571px;;
+	width: 1012px;
+	height: 515px;
 }
 ol.stops li.stop {
 	padding-left: 10px;
 	padding-right: 20px;
-	padding-top: 12px;
-	padding-bottom: 12px;
+	padding-top: 1px;
+	padding-bottom: 1px;
 	border-bottom: 1px solid #d9e3ea;
 }
 span.value {
