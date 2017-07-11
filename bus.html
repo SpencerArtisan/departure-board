@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
 </head>
 <body>
+  <div id="dimmer"></div>
   <ol class="stops">
     <li class="overground stop" id="overground"></li>
     <li class="bus stop" id="callySouth"></li>
@@ -19,6 +20,29 @@
   </ol>
 
     <script type="text/babel">
+brighten();
+
+function dim() {
+  setTimeout(brighten, msUntil(6, 0));
+  $('#dimmer').show();
+}
+
+function brighten() {
+  setTimeout(dim, msUntil(21, 0));
+  $('#dimmer').hide();
+}
+
+function msUntil(hours, mins) {
+  var now = new Date();
+  var ms = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, mins, 0, 0) - now;
+  if (ms < 0) {
+     ms += 86400000; // Try 10am tomorrow.
+  }
+  console.log(ms/6000);
+  return ms;
+}
+
+
 var Departure = React.createClass({
   render: function() {
       return this.props.minsToArrival == 0 ? 
